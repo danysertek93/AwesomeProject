@@ -11,7 +11,6 @@ export default function SettingsScreen() {
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
   headerRight: () => (
     <Button
       onPress={() => alert('This is a button!')}

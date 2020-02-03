@@ -4,6 +4,7 @@ import {StyleSheet,Text,View,TouchableHighlight,TouchableOpacity, Dimensions} fr
 export default class SimpleModal extends Component{
     constructor(props){
         super(props);
+        
         this.state={
             width:Dimensions.get('window').width,
         };
@@ -12,7 +13,7 @@ export default class SimpleModal extends Component{
         })
     }
     closeModal=()=>{
-        this.props.ChangeModalVisibility(false);
+        this.props.changeModalVisibility(false);
     }
     
     render(){
@@ -34,3 +35,20 @@ export default class SimpleModal extends Component{
         );
     }
 }
+
+const styles= StyleSheet.create({
+    contentContainer:{
+        flex:1,
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    modal:{
+        height:150,
+        paddingTop:10,
+        alignSelf:"center",
+        alignItems:"center",
+        textAlign:"center",
+        backgroundColor:"white",
+        borderRadius:10,
+    }
+})
