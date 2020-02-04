@@ -9,6 +9,7 @@ class WebViewHome extends Component {
     return (
       
       <WebView
+        startInLoadingState={true}
         javaScriptEnabled
         injectedJavaScript={'function injectRules() {' + myRule + '};injectRules();'}
         ref={ref => (this.webview = ref)}

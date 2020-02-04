@@ -5,6 +5,7 @@ class WebViewSeeMore extends Component {
   render() {
     return (
       <WebView
+        startInLoadingState={true}
         source={{uri: 'https://www.justoapp.com/search'}}
         style={{marginTop: 20}}
       />

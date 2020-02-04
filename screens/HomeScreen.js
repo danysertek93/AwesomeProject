@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { WebView } from 'react-native-webview'
 import Mymodal from './../components/MyModal'
-import {StyleSheet, Text,View,Modal,TouchableHighlight} from 'react-native'
+import {StyleSheet, Text,View,Modal,TouchableHighlight,Button} from 'react-native'
 import SimpleModal from "./../components/SimpleModal";
 class WebViewHome extends Component {
   webview = null;
@@ -10,29 +10,13 @@ class WebViewHome extends Component {
     this.state={
         isVisibleModal:false,
     }
+
 }
 
 changeModalVisibility=(bool)=>{
     this.setState({isVisibleModal:bool});
 
 }
-
-  render() {
-    return (
-      <View style={{flex:1}}>
-      <WebView
-        ref={ref => (this.webview = ref)}
-        source={{ uri: 'https://justoapp.com' }}
-        onNavigationStateChange={this.handleWebViewNavigationStateChange}
-      />
-      <Modal visible={this.state.isVisibleModal} onRequestClose={()=>this.changeModalVisibility(false)}>
-        <SimpleModal changeModalVisibility={this.changeModalVisibility}/>
-      </Modal>
-      </View>
-    );
-  }
-
-  
 
   handleWebViewNavigationStateChange = newNavState => {
     // newNavState looks something like this:
@@ -44,10 +28,10 @@ changeModalVisibility=(bool)=>{
     //   canGoForward?: boolean;
     // }
     const { url, canGoBack } = newNavState;
-    var urlNext
     if (url!='https://justoapp.com/'){
         if (canGoBack){
-          console.log('esta en una url diferente');
+          this.webview.goBack();
+
         } 
     }else{ 
     console.log(url);
@@ -78,6 +62,22 @@ changeModalVisibility=(bool)=>{
       this.webview.injectJavaScript(redirectTo);
     }
   };
+  
+
+  render() {
+    return (
+      <View style={{flex:1}}>
+      <WebView
+        startInLoadingState={true}
+        ref={ref => (this.webview = ref)}
+        source={{ uri: 'https://justoapp.com' }}
+        onNavigationStateChange={this.handleWebViewNavigationStateChange}
+      />
+      </View>
+    );
+  }
 }
+
+          
 
 export default WebViewHome;
