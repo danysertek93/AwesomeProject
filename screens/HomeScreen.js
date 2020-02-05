@@ -30,7 +30,6 @@ changeModalVisibility=(bool)=>{
     const { url, canGoBack } = newNavState;
     if (url!='https://justoapp.com/'){
         if (canGoBack){
-          this.webview.goBack();
 
         } 
     }else{ 
