@@ -3,6 +3,7 @@ import { WebView } from 'react-native-webview'
 import Mymodal from './../components/MyModal'
 import {StyleSheet, Text,View,Modal,TouchableHighlight,Button} from 'react-native'
 import SimpleModal from "./../components/SimpleModal";
+import {BackHandler} from "react-native"
 class WebViewHome extends Component {
   webview = null;
   constructor(props){
@@ -28,15 +29,6 @@ changeModalVisibility=(bool)=>{
     //   canGoForward?: boolean;
     // }
     const { url, canGoBack } = newNavState;
-    if (url!='https://justoapp.com/'){
-        if (canGoBack){
-
-        } 
-    }else{ 
-    console.log(url);
-  }
-    
-
     // handle certain doctypes
     if (url.includes('.pdf')) {
       this.webview.stopLoading();
@@ -67,6 +59,7 @@ changeModalVisibility=(bool)=>{
     return (
       <View style={{flex:1}}>
       <WebView
+        useWebKit
         startInLoadingState={true}
         ref={ref => (this.webview = ref)}
         source={{ uri: 'https://justoapp.com' }}

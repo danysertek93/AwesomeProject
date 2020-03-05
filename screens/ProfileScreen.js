@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { WebView } from 'react-native-webview'
+import { WebView } from 'react-native-webview';
+import {View} from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class WebViewHome extends Component {
   webview = null;
 
   render() {
-    const myRule = 'document.getElementsByClassName("main-footer")[0].style.display="none";document.getElementsByClassName("header")[0].style.display="none";';
+    const myRule = 'document.getElementsByClassName("main-footer")[0].style.display="none";document.getElementsByClassName("header")[0].style.display="none";document.getElementById("wrapper").style.paddingTop="0px";';
     return (
-      
+      <View style={{flex:1}}>
       <WebView
         startInLoadingState={true}
         javaScriptEnabled
@@ -16,7 +18,8 @@ class WebViewHome extends Component {
         source={{ uri: 'https://www.justoapp.com/login' }}
         onNavigationStateChange={this.handleWebViewNavigationStateChange}
       />
-
+      <KeyboardSpacer/>
+      </View>
     );
   }
 

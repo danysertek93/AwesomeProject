@@ -1,9 +1,14 @@
 {
   "expo": {
-    "name": "AwesomeProject",
-    "slug": "AwesomeProject",
+    "name": "JustoApp",
+    "slug": "JustoApp",
     "privacy": "public",
     "sdkVersion": "36.0.0",
+    "android": {
+      "package": "com.justoapp.justoapp",
+      "versionCode": 2
+    },
+    
     "platforms": [
       "ios",
       "android",
