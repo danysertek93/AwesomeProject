@@ -1,4 +1,6 @@
 {
+  "name": "justoapp",
+  "displayName": "justoapp",
   "expo": {
     "name": "JustoApp",
     "slug": "JustoApp",
@@ -6,9 +8,9 @@
     "sdkVersion": "36.0.0",
     "android": {
       "package": "com.justoapp.justoapp",
-      "versionCode": 2
+      "versionCode": 2,
+      "permissions":["CAMERA_ROLL"]
     },
-    
     "platforms": [
       "ios",
       "android",
@@ -16,7 +18,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/icon_ios.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -29,7 +31,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.justoapp.justoapp",
+      "buildNumber": "1.0.0"
     }
   }
 }
