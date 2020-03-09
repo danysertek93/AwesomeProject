@@ -4,9 +4,6 @@ import Mymodal from './../components/MyModal'
 import {StyleSheet, Text,View,Modal,TouchableHighlight,Button} from 'react-native'
 import SimpleModal from "./../components/SimpleModal";
 import {BackHandler} from "react-native"
-import * as Permissions from 'expo-permissions';
-import * as ImagePicker from 'expo-image-picker';
-
 class WebViewHome extends Component {
   webview = null;
   constructor(props){
@@ -21,8 +18,6 @@ changeModalVisibility=(bool)=>{
     this.setState({isVisibleModal:bool});
 
 }
-
-
 
   handleWebViewNavigationStateChange = newNavState => {
     // newNavState looks something like this:
@@ -61,18 +56,9 @@ changeModalVisibility=(bool)=>{
   
 
   render() {
-    const cameraPermission = async ()=>{
-    const resultPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    const resultPermissionCamera= resultPermission.permissions.cameraRoll.status
-    if (resultPermissionCamera !== 'granted') {
-      alert("Justoapp ocupa permisos para acceder a tu camara")
-      
-    }
-    }
     return (
       <View style={{flex:1}}>
       <WebView
-        onLoad={cameraPermission}
         useWebKit
         startInLoadingState={true}
         ref={ref => (this.webview = ref)}
